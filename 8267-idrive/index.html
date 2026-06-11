@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8267 International Dr — Exterior Capital Work Review</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#16263d;
+    --navy-deep:#0e1a2b;
+    --ink:#1c2533;
+    --ink-2:#4a5568;
+    --ink-3:#8a94a3;
+    --cream:#f7f4ee;
+    --paper:#fffdf9;
+    --line:#e6e0d4;
+    --orange:#e07a2f;
+    --orange-soft:rgba(224,122,47,.12);
+    --orange-border:rgba(224,122,47,.35);
+    --green:#3e7d5a;
+    --green-soft:rgba(62,125,90,.1);
+    --red:#b8513e;
+    --red-soft:rgba(184,81,62,.09);
+    --serif:'Fraunces',Georgia,serif;
+    --sans:'Inter',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--sans);
+    background:var(--cream);
+    color:var(--ink);
+    font-size:15px;
+    line-height:1.6;
+    padding-bottom:110px;
+  }
+  .wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+
+  /* ── Header ─────────────────────────── */
+  header{
+    background:var(--navy);
+    color:#f5f1e8;
+    padding:54px 0 46px;
+    position:relative;
+    overflow:hidden;
+  }
+  header::after{
+    content:"";position:absolute;inset:0;opacity:.04;pointer-events:none;
+    background:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .eyebrow{
+    font-size:11px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;
+    color:var(--orange);margin-bottom:14px;
+  }
+  header h1{
+    font-family:var(--serif);font-weight:500;font-size:clamp(30px,4.4vw,44px);
+    line-height:1.12;letter-spacing:-.5px;max-width:680px;
+  }
+  header .sub{
+    margin-top:16px;color:rgba(245,241,232,.62);font-size:14px;max-width:620px;
+  }
+  .header-meta{
+    display:flex;gap:36px;flex-wrap:wrap;margin-top:34px;
+    padding-top:24px;border-top:1px solid rgba(245,241,232,.14);
+  }
+  .header-meta div span{display:block}
+  .header-meta .k{font-size:10.5px;letter-spacing:1.8px;text-transform:uppercase;color:rgba(245,241,232,.42);font-weight:600;margin-bottom:3px}
+  .header-meta .v{font-size:14.5px;font-weight:500}
+
+  /* ── Sections ───────────────────────── */
+  section{padding:44px 0 8px}
+  .sec-head{display:flex;align-items:baseline;justify-content:space-between;gap:18px;margin-bottom:8px;flex-wrap:wrap}
+  h2{font-family:var(--serif);font-weight:500;font-size:26px;letter-spacing:-.3px}
+  .sec-note{font-size:13px;color:var(--ink-3);max-width:420px;text-align:right}
+  .rule{height:1px;background:var(--line);margin:14px 0 26px}
+
+  /* ── Overview strip ─────────────────── */
+  .overview{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:var(--line);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    margin-top:34px;
+  }
+  .ov-cell{background:var(--paper);padding:20px 22px}
+  .ov-cell .k{font-size:10.5px;letter-spacing:1.8px;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+  .ov-cell .v{font-family:var(--serif);font-size:26px;font-weight:500;margin-top:5px;letter-spacing:-.3px}
+  .ov-cell .d{font-size:12px;color:var(--ink-3);margin-top:2px}
+
+  /* ── Category block ─────────────────── */
+  .cat{margin-bottom:38px}
+  .cat-title{
+    display:flex;align-items:center;gap:12px;margin-bottom:6px;
+  }
+  .cat-num{
+    font-family:var(--serif);font-size:15px;color:var(--orange);font-weight:600;
+    border:1px solid var(--orange-border);border-radius:50%;
+    width:30px;height:30px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .cat-title h3{font-family:var(--serif);font-weight:500;font-size:21px;letter-spacing:-.2px}
+  .cat-sub{font-size:13.5px;color:var(--ink-2);margin:2px 0 18px 42px;max-width:760px}
+
+  .bid-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-left:42px}
+  .bid-grid.single{grid-template-columns:1fr}
+  @media(max-width:760px){
+    .bid-grid{grid-template-columns:1fr;margin-left:0}
+    .cat-sub{margin-left:0}
+    .overview{grid-template-columns:1fr 1fr}
+    .sec-note{text-align:left}
+  }
+
+  /* ── Bid card ───────────────────────── */
+  .bid{
+    background:var(--paper);border:1.5px solid var(--line);border-radius:16px;
+    padding:22px 24px;cursor:pointer;position:relative;
+    transition:border-color .2s,box-shadow .2s,transform .15s;
+  }
+  .bid:hover{border-color:#cfc6b4;transform:translateY(-1px)}
+  .bid.selected{
+    border-color:var(--orange);
+    box-shadow:0 6px 24px rgba(224,122,47,.13);
+  }
+  .bid.selected .pick{background:var(--orange);border-color:var(--orange)}
+  .bid.selected .pick::after{
+    content:"";position:absolute;left:5px;top:2px;width:5px;height:9px;
+    border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);
+  }
+  .pick{
+    position:absolute;top:20px;right:20px;width:19px;height:19px;
+    border:2px solid #cfc6b4;border-radius:6px;background:#fff;transition:all .15s;
+  }
+  .bid-vendor{font-size:11px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink-3)}
+  .bid-price{font-family:var(--serif);font-size:30px;font-weight:500;letter-spacing:-.5px;margin:6px 0 2px}
+  .bid-price small{font-size:14px;color:var(--ink-3);font-family:var(--sans);font-weight:500;letter-spacing:0}
+  .tag{
+    display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+    padding:3px 9px;border-radius:5px;margin:6px 0 10px;
+  }
+  .tag.rec{background:var(--green-soft);color:var(--green)}
+  .tag.alt{background:rgba(28,37,51,.06);color:var(--ink-2)}
+  .tag.only{background:var(--orange-soft);color:#b35f1f}
+  .bid ul{list-style:none;margin-top:8px}
+  .bid li{
+    display:flex;justify-content:space-between;gap:14px;
+    font-size:13.5px;color:var(--ink-2);padding:6px 0;border-top:1px dashed var(--line);
+  }
+  .bid li span:last-child{font-variant-numeric:tabular-nums;color:var(--ink);font-weight:500;white-space:nowrap}
+  .bid-foot{
+    margin-top:12px;padding-top:10px;border-top:1px solid var(--line);
+    font-size:12px;color:var(--ink-3);display:flex;gap:14px;flex-wrap:wrap;
+  }
+  .bid-foot b{color:var(--ink-2);font-weight:600}
+  .delta{font-size:12.5px;font-weight:600;margin-top:8px}
+  .delta.save{color:var(--green)}
+  .delta.cost{color:var(--red)}
+
+  /* ── Terms table ────────────────────── */
+  table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:13.5px}
+  th{
+    text-align:left;font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:var(--ink-3);
+    font-weight:700;padding:13px 18px;background:#f2eee5;border-bottom:1px solid var(--line);
+  }
+  td{padding:13px 18px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+  tr:last-child td{border-bottom:none}
+  td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+  .warn{color:var(--red);font-weight:600}
+
+  /* ── Sticky total bar ───────────────── */
+  .totalbar{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:rgba(14,26,43,.97);backdrop-filter:blur(14px);
+    border-top:1px solid rgba(245,241,232,.12);
+    color:#f5f1e8;
+  }
+  .totalbar .wrap{
+    display:flex;align-items:center;justify-content:space-between;gap:20px;
+    padding-top:16px;padding-bottom:16px;flex-wrap:wrap;
+  }
+  .tb-items{font-size:12.5px;color:rgba(245,241,232,.6)}
+  .tb-items b{color:#f5f1e8;font-weight:600}
+  .tb-right{display:flex;align-items:baseline;gap:14px}
+  .tb-label{font-size:10.5px;letter-spacing:2px;text-transform:uppercase;color:var(--orange);font-weight:700}
+  .tb-total{font-family:var(--serif);font-size:32px;font-weight:500;letter-spacing:-.5px;font-variant-numeric:tabular-nums}
+
+  footer{margin-top:46px;padding:26px 0 40px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-3)}
+
+  /* ── Print ──────────────────────────── */
+  @media print{
+    body{padding-bottom:0;background:#fff}
+    .totalbar{position:static;background:var(--navy);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .bid:hover{transform:none}
+    header{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .cat{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="eyebrow">V3 Capital Group · Owner Review</div>
+    <h1>Exterior Capital Work<br>8267 International Drive</h1>
+    <p class="sub">Six proposals received across four scopes: paving, pressure washing, tree care, and landscape renovation. Tap any card to add it to a running total — all figures and scope details are drawn directly from the vendor proposals.</p>
+    <div class="header-meta">
+      <div><span class="k">Property</span><span class="v">8267 International Dr, Orlando FL 32819</span></div>
+      <div><span class="k">Prepared</span><span class="v">June 11, 2026</span></div>
+      <div><span class="k">Vendors</span><span class="v">4 firms · 6 proposals</span></div>
+      <div><span class="k">Prepared by</span><span class="v">Diego Herrera</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="overview">
+    <div class="ov-cell"><span class="k">Work categories</span><span class="v">4</span><span class="d">Paving · Wash · Trees · Landscape</span></div>
+    <div class="ov-cell"><span class="k">Proposals</span><span class="v">6</span><span class="d">From 4 vendors</span></div>
+    <div class="ov-cell"><span class="k">Combined range</span><span class="v">$43.8–61.4K</span><span class="d">Depending on selections</span></div>
+    <div class="ov-cell"><span class="k">Earliest expiry</span><span class="v">Jun 18</span><span class="d">Rose Paving (15-day validity)</span></div>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <h2>Scope &amp; Bids</h2>
+      <p class="sec-note">Where two vendors quoted the same scope, the cards sit side by side. Click to select, click again to remove.</p>
+    </div>
+    <div class="rule"></div>
+
+    <!-- 1 · PAVING -->
+    <div class="cat">
+      <div class="cat-title"><div class="cat-num">1</div><h3>Parking Lot — Mill, Pave &amp; Stripe</h3></div>
+      <p class="cat-sub">Rear lot rehabilitation: remove-and-replace failed asphalt, full 5,200 SF overlay, new striping layout with 12 car stops. One day prep, one day pave. Sole bid.</p>
+      <div class="bid-grid single">
+        <div class="bid" data-cat="paving" data-vendor="Rose Paving" data-price="29050">
+          <div class="pick"></div>
+          <div class="bid-vendor">Rose Paving</div>
+          <div class="bid-price">$29,050</div>
+          <span class="tag only">Sole Bid</span>
+          <ul>
+            <li><span>Asphalt remove &amp; replace — 5,200 SF</span><span>$9,400</span></li>
+            <li><span>Overlay — 5,200 SF</span><span>$17,000</span></li>
+            <li><span>Striping layout + 12 new car stops</span><span>$2,650</span></li>
+          </ul>
+          <div class="bid-foot"><span><b>Valid:</b> thru ~Jun 18 (15 days)</span><span><b>Deposit:</b> 1/3 to schedule</span><span><b>Warranty:</b> 1 yr workmanship</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 · PRESSURE WASHING -->
+    <div class="cat">
+      <div class="cat-title"><div class="cat-num">2</div><h3>Pressure Washing — Building &amp; Flatwork</h3></div>
+      <p class="cat-sub">Building facade (low-pressure soft wash) plus all sidewalks, patios, pads, and stoops. Two vendors quoted this scope.</p>
+      <div class="bid-grid">
+        <div class="bid" data-cat="wash" data-vendor="CleanFast" data-price="5782">
+          <div class="pick"></div>
+          <div class="bid-vendor">CleanFast USA</div>
+          <div class="bid-price">$5,782</div>
+          
+          <ul>
+            <li><span>Building soft wash (facade, all elevations)</span><span>$3,382</span></li>
+            <li><span>Sidewalk &amp; concrete pressure washing</span><span>$2,400</span></li>
+          </ul>
+          
+          <div class="bid-foot"><span><b>Valid:</b> thru Jun 30</span><span><b>Target:</b> July completion</span><span><b>Note:</b> heavy mildew on wood fascia — full result not guaranteed where coating has failed</span></div>
+        </div>
+        <div class="bid" data-cat="wash" data-vendor="BrightView" data-price="22470">
+          <div class="pick"></div>
+          <div class="bid-vendor">BrightView</div>
+          <div class="bid-price">$22,470</div>
+          
+          <ul>
+            <li><span>Building pressure washing</span><span>$15,438</span></li>
+            <li><span>Sidewalk pressure washing</span><span>$7,032</span></li>
+          </ul>
+          
+          <div class="bid-foot"><span><b>Valid:</b> 30 days (thru ~Jul 9)</span><span><b>Payment:</b> 50% on signing</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 · TREE CARE -->
+    <div class="cat">
+      <div class="cat-title"><div class="cat-num">3</div><h3>Tree Trimming</h3></div>
+      <p class="cat-sub">Queen palms at the front entry, four Washingtonia palms at the rear, and canopy elevation on the two live oaks contacting the roof at the back-right corner — including separation from the light post and street clearance to 14 ft.</p>
+      <div class="bid-grid">
+        <div class="bid" data-cat="tree" data-vendor="Tree Work Now" data-price="3505">
+          <div class="pick"></div>
+          <div class="bid-vendor">Tree Work Now</div>
+          <div class="bid-price">$3,505 <small>($3,400 cash/check)</small></div>
+          
+          <ul>
+            <li><span>3 Queen palms + 2 live oaks (roof clearance, canopy elevation, deadwood)</span><span>$2,990</span></li>
+            <li><span>4 Washingtonia palms — rear</span><span>$515</span></li>
+          </ul>
+          <div class="delta" style="color:var(--ink-3)">ISA-standard pruning · COI on file</div>
+          <div class="bid-foot"><span><b>Valid:</b> thru Jul 5</span><span><b>Discount:</b> 3% cash/paper check on site</span><span><b>Note:</b> rear parking must be clear of vehicles</span></div>
+        </div>
+        <div class="bid" data-cat="tree" data-vendor="BrightView" data-price="4477">
+          <div class="pick"></div>
+          <div class="bid-vendor">BrightView</div>
+          <div class="bid-price">$4,477</div>
+          
+          <ul>
+            <li><span>Palm trimming (allocated incl. crew hours)</span><span>$1,848</span></li>
+            <li><span>Oak trimming (allocated incl. crew hours)</span><span>$2,629</span></li>
+          </ul>
+          
+          <div class="bid-foot"><span><b>Valid:</b> 30 days</span><span><b>Payment:</b> 50% on signing</span><span><b>Note:</b> single combined proposal with landscaping; tree-only split is allocated</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 · LANDSCAPING -->
+    <div class="cat">
+      <div class="cat-title"><div class="cat-num">4</div><h3>Landscape Bed Renovation</h3></div>
+      <p class="cat-sub">Full cleanup of all landscape beds plus new plant material: gardenias, Blue Daze, Aztec grass, Pink Muhly, and Podocarpus (211 plants total). BrightView provided before/after renderings of comparable installs. Sole bid.</p>
+      <div class="bid-grid single">
+        <div class="bid" data-cat="land" data-vendor="BrightView" data-price="5418">
+          <div class="pick"></div>
+          <div class="bid-vendor">BrightView</div>
+          <div class="bid-price">$5,418</div>
+          <span class="tag only">Sole Bid</span>
+          <ul>
+            <li><span>Bed cleanup — all landscape beds (allocated incl. crew hours)</span><span>$4,190</span></li>
+            <li><span>Plant material — 4 gardenias, 120 Blue Daze, 65 Aztec grass, 10 Pink Muhly, 12 Podocarpus</span><span>$1,228</span></li>
+          </ul>
+          <div class="bid-foot"><span><b>Valid:</b> 30 days (thru ~Jul 9)</span><span><b>Payment:</b> 50% on signing</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head">
+      <h2>Terms at a Glance</h2>
+      <p class="sec-note">Key commercial terms pulled from each proposal.</p>
+    </div>
+    <div class="rule"></div>
+    <table>
+      <thead><tr><th>Vendor</th><th>Validity</th><th>Payment Terms</th><th>Notable</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Rose Paving</td>
+          <td><span class="warn">~Jun 18</span> — 15 days from issue, shortest window</td>
+          <td>1/3 deposit to schedule (&gt;$15K); net 30; price reflects 4% cash/check/ACH discount</td>
+          <td>Material escalation clause (asphalt) without change order; overlay not warrantied against reflective cracking</td>
+        </tr>
+        <tr>
+          <td>CleanFast USA</td>
+          <td>Jun 30</td>
+          <td>Due on completion</td>
+          <td>Flags failed coating / possible wood rot on fascia — worth scoping a repaint separately</td>
+        </tr>
+        <tr>
+          <td>BrightView</td>
+          <td>~Jul 9 — 30 days</td>
+          <td>50% on signing, balance on completion</td>
+          <td>1.5%/mo on late balances; existing landscape vendor on site</td>
+        </tr>
+        <tr>
+          <td>Tree Work Now</td>
+          <td>Jul 5</td>
+          <td>Due on receipt; 3% discount for cash/paper check on site</td>
+          <td>COI on file ($1M GL / $2M umbrella); recommends 3–5 yr trim cycle for storm resilience</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    Prepared by V3 Capital Group for owner review. Bid selection is at owner's discretion · Source documents: Rose Paving OPP-26-028309 (6/3/26) · CleanFast Quote 1945975 (6/2/26) · BrightView SO# 8937830, 8938529, 8938585 (6/9/26) · Tree Work Now QU-24716 (6/5/26). BrightView tree/landscape line items are allocated from a single combined proposal totaling $9,895.71. This summary does not modify any vendor's terms; refer to original proposals for contract language.
+  </footer>
+</div>
+
+<div class="totalbar">
+  <div class="wrap">
+    <div class="tb-items" id="tbItems"></div>
+    <div class="tb-right">
+      <span class="tb-label">Package Total</span>
+      <span class="tb-total" id="tbTotal">$0</span>
+    </div>
+  </div>
+</div>
+
+<script>
+  const fmt = n => '$' + n.toLocaleString('en-US');
+  const bids = document.querySelectorAll('.bid');
+
+  function recalc(){
+    const chosen = {};
+    document.querySelectorAll('.bid.selected').forEach(b=>{
+      chosen[b.dataset.cat] = {v:b.dataset.vendor, p:+b.dataset.price};
+    });
+    let total = 0, parts = [];
+    const names = {paving:'Paving', wash:'Pressure washing', tree:'Tree care', land:'Landscaping'};
+    for(const cat of ['paving','wash','tree','land']){
+      if(chosen[cat]){ total += chosen[cat].p; parts.push(names[cat]+': <b>'+chosen[cat].v+'</b>'); }
+    }
+    document.getElementById('tbTotal').textContent = fmt(total);
+    document.getElementById('tbItems').innerHTML = parts.length ? parts.join(' &nbsp;·&nbsp; ') : 'Nothing selected yet — click cards above to build a combination.';
+  }
+
+  bids.forEach(b=>{
+    b.addEventListener('click', ()=>{
+      const cat = b.dataset.cat;
+      const wasSelected = b.classList.contains('selected');
+      document.querySelectorAll('.bid[data-cat="'+cat+'"]').forEach(x=>x.classList.remove('selected'));
+      if(!wasSelected) b.classList.add('selected');
+      recalc();
+    });
+  });
+  recalc();
+</script>
+</body>
+</html>
